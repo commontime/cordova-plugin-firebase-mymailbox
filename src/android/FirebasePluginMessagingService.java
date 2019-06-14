@@ -26,6 +26,10 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = "FirebasePlugin";
 
+    public void onNewToken(String token) {
+        FirebasePlugin.sendToken(token);
+    }
+
     /**
      * Get a string from resources without importing the .R package
      *
@@ -45,7 +49,7 @@ public class FirebasePluginMessagingService extends FirebaseMessagingService {
      *
      * @param remoteMessage Object representing the message received from Firebase Cloud Messaging.
      */
-    @Override
+    @Override  
     public void onMessageReceived(RemoteMessage remoteMessage) {
         // [START_EXCLUDE]
         // There are two types of messages data messages and notification messages. Data messages are handled
